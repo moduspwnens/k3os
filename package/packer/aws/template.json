@@ -1,28 +1,17 @@
 {
   "variables": {
-    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
-    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
     "region": "us-east-1",
-    "k3os_version": "v0.9.0-rc4",
-    "iso_url": "https://github.com/rancher/k3os/releases/download/v0.9.0-rc4/k3os-amd64.iso"
+    "k3os_version": "v0.10.0-certes1",
+    "iso_url": "https://benn-test-bucket1.s3.amazonaws.com/k3os/v0.10.0-certes1/k3os-amd64.iso"
   },
   "builders": [{
     "type": "amazon-ebs",
-    "access_key": "{{user `aws_access_key`}}",
-    "secret_key": "{{user `aws_secret_key`}}",
     "region": "{{user `region`}}",
-    "source_ami_filter": {
-      "filters": {
-        "virtualization-type": "hvm",
-        "name": "ubuntu-minimal/images/*/ubuntu-bionic-18.04-amd64-minimal-*",
-        "root-device-type": "ebs"
-      },
-      "owners": ["099720109477"],
-      "most_recent": true
-    },
+    "source_ami": "ami-085925f297f89fce1",
     "instance_type": "t3.small",
     "ssh_username": "ubuntu",
-    "ami_name": "Rancher k3OS {{user `k3os_version`}}"
+    "ami_name": "Rancher k3OS {{user `k3os_version`}} {{timestamp}}",
+    "ena_support": true
   }],
   "provisioners": [
         {
