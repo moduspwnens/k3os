@@ -35,7 +35,7 @@ RUN apk add --no-cache openssl && \
     ./get_helm.sh && \
     rm -f get_helm.sh && \
     helm repo add certes https://certes-jenkins.buckets.certesnetworks.com/helm/ && \
-    helm fetch certes/cep --version 0.0.677 --destination current/certes/charts && \
+    helm fetch certes/cep --version 0.0.678 --destination current/certes/charts && \
     rm -f $(which helm) && \
     apk del openssl
 
