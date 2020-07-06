@@ -2,21 +2,12 @@
   "builders": [
     {
       "access_key": "{{user `aws_access_key`}}",
-      "ami_name": "rancher-k3os-{{user `k3os_version`}}-arm64-{{isotime `200601020304`}}",
-      "instance_type": "a1.large",
+      "ami_name": "Rancher k3OS {{user `k3os_version`}} {{timestamp}}",
+      "instance_type": "t3.small",
       "region": "{{user `region`}}",
       "secret_key": "{{user `aws_secret_key`}}",
-      "source_ami_filter": {
-        "filters": {
-          "name": "ubuntu/images/hvm-ssd/ubuntu-focal-*-arm64-server-*",
-          "root-device-type": "ebs",
-          "virtualization-type": "hvm"
-        },
-        "most_recent": true,
-        "owners": [
-          "099720109477"
-        ]
-      },
+      "source_ami": "ami-085925f297f89fce1",
+      "ena_support": true,
       "ssh_username": "ubuntu",
       "tags": {
         "Name": "k3OS",
@@ -53,8 +44,8 @@
     }
   ],
   "variables": {
-    "iso_url": "https://github.com/rancher/k3os/releases/download/v0.10.2/k3os-arm64.iso",
-    "k3os_version": "v0.10.2",
+    "iso_url": "https://benn-test-bucket1.s3.amazonaws.com/k3os/v0.11.0-rc1-7-ge3b87a5-dirty/k3os-amd64.iso",
+    "k3os_version": "v0.11.0-rc1-7-ge3b87a5-dirty",
     "region": "us-east-1"
   }
 }

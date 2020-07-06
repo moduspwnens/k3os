@@ -1,7 +1,8 @@
-boot_cmd:
-  - mkdir -p /var/lib/rancher/k3os/config.d
-  - rm -f /var/lib/rancher/k3os/config.d/certes-application.yaml
-  - ln -s /k3os/system/k3os/current/certes/config.yaml /var/lib/rancher/k3os/config.d/certes-application.yaml
-
 k3os:
   datasource: aws
+  k3s_args:
+    - server
+    - --no-deploy
+    - traefik
+    - --no-deploy
+    - servicelb
