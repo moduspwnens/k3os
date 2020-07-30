@@ -14,7 +14,7 @@
         "Version": "{{user `k3os_version`}}"
       },
       "type": "amazon-ebs",
-      "launch_block_device_mappings": [
+      "ami_block_device_mappings": [
         {
           "device_name": "/dev/sda1",
           "volume_size": 20,
@@ -52,8 +52,8 @@
     }
   ],
   "variables": {
-    "iso_url": "https://benn-test-bucket1.s3.amazonaws.com/k3os/v0.11.0-rc1-7-ge3b87a5-dirty/k3os-amd64.iso",
-    "k3os_version": "v0.11.0-rc1-7-ge3b87a5-dirty",
+    "iso_url": "https://benn-test-bucket1.s3.amazonaws.com/k3os/v0.11.0-rc1-9-g84b8176-dirty/k3os-amd64.iso",
+    "k3os_version": "v0.11.0-rc1-9-g84b8176-dirty",
     "region": "us-east-1"
   }
 }

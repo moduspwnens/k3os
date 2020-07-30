@@ -26,5 +26,8 @@ RUN ln -sf /k3os/system/k3s/current/k3s /output/sbin/k3s
 WORKDIR /output/k3os/system/k3os
 RUN ln -sf ${VERSION} current
 
+RUN mkdir -p current/certes/charts
+COPY config-app.yaml current/certes/config.yaml
+
 RUN ln -sf /k3os/system/k3os/current/k3os /output/sbin/k3os
 RUN ln -sf k3os /output/sbin/init
